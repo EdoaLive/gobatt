@@ -27,12 +27,12 @@ func main() {
 		}
 		for _, v := range dst {
 			fmt.Printf("V:\t%v\tP:\t%v\n", v.Voltage, v.DischargeRate)
-			if v.Voltage < 9300 {
+			if v.Voltage < 9500 {
 				//beeep.Alert("Title", "Message body", "assets/information.png")
-				beeep.Beep(220, beeep.DefaultDuration)
+				beeep.Beep(320, beeep.DefaultDuration)
 				count++
 				fmt.Printf("Voltage critical, count %v...\n", count)
-				if count >= 5 {
+				if count >= 7 {
 					fmt.Println("Voltage critical, hibernating...")
 					cmd := exec.Command("C:\\Windows\\System32\\shutdown.exe", "/h")
 					err := cmd.Run()
